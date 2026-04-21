@@ -89,7 +89,7 @@ mqtt:
 
 ```bash
 # 克隆项目
-git clone <项目地址>
+git clone https://github.com/jyehui6/sleep-parser.git
 cd sleep-parser
 
 # 构建项目
