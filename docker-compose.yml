@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  sleep-parser-server:
+    image: sleep/parser-server:1.0.0
+    container_name: sleep-parser-server
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      SERVER_PORT: 8021
+      MQTT_BROKER: tcp://192.168.10.188:1883
+      MQTT_USERNAME: parser-server
+      MQTT_PASSWORD: 123456
+      MQTT_CLIENT_ID: sleep-parser-server
+    volumes:
+      - /docker/sleep-parser-server/logs/:/sleep-parser/server/logs/
+    privileged: true
+    restart: always
+    network_mode: "host"
