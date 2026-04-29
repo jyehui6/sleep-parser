@@ -1,4 +1,4 @@
-package com.leanstar.sleepparser.service;
+package com.leanstar.sleep.parser.service;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.leanstar.sleepparse.util.SleepDataParserUtil;
@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.concurrent.Executor;
 
@@ -51,9 +50,9 @@ public class SleepDataService {
                             MqttMessage parsedMessage = new MqttMessage(result.toString().getBytes());
                             parsedMessage.setQos(2);
                             mqttClient.publish(parsedTopic, parsedMessage);
-                            logger.info("Published parsed result to: " + parsedTopic);
+                            logger.info("Published parsed result to：{}, parsed message：{}", parsedTopic, result);
                         } else {
-                            logger.warn("Failed to parse message: " + payload);
+                            logger.warn("Failed to parse message：{}", payload);
                         }
                     } catch (Exception e) {
                         logger.error("Error processing message：", e);

@@ -1,4 +1,4 @@
-package com.leanstar.sleepparser.config;
+package com.leanstar.sleep.parser.config;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;

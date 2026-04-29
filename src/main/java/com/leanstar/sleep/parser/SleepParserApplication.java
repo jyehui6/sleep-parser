@@ -1,4 +1,4 @@
-package com.leanstar.sleepparser;
+package com.leanstar.sleep.parser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

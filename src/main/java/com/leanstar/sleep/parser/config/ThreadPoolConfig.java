@@ -1,4 +1,4 @@
-package com.leanstar.sleepparser.config;
+package com.leanstar.sleep.parser.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

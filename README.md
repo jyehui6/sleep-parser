@@ -115,7 +115,7 @@ docker-compose up -d
 docker-compose ps
 
 # 查看日志
-docker-compose logs -f sleep-parser
+docker-compose logs -f sleep-parser-server
 
 # 停止容器
 docker-compose down
