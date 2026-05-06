@@ -12,6 +12,8 @@ services:
       MQTT_USERNAME: parser-server
       MQTT_PASSWORD: 123456
       MQTT_CLIENT_ID: sleep-parser-server
+      MQTT_RECONNECT_DELAY: 5000
+      MQTT_HEARTBEAT_INTERVAL: 30000
     volumes:
       - /docker/sleep-parser-server/logs/:/sleep-parser/server/logs/
     privileged: true

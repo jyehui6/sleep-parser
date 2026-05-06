@@ -1,21 +1,43 @@
+# Spring Boot 应用配置
 spring:
+  # 应用名称
   application:
     name: sleep-parser
+  # 激活的配置文件（默认使用 default）
   profiles:
     active: default
 
+# 服务器配置
 server:
+  # 服务端口号
   port: 8021
 
+# 日志配置
 logging:
   level:
+    # 应用代码日志级别（info：输出信息级别及以上日志）
     com.leanstar.sleepparser: info
+    # Spring框架日志级别（warn：只输出警告级别及以上日志，减少日志量）
     org.springframework: warn
+  # 自定义日志配置文件路径
   config: classpath:logback-plus.xml
 
+# MQTT 消息队列配置
 mqtt:
+  # MQTT Broker 地址（支持环境变量 MQTT_BROKER，默认值为本地 EMQX 服务）
   broker: ${MQTT_BROKER:tcp://192.168.10.188:1883}
   client:
+    # 客户端 ID（支持环境变量 MQTT_CLIENT_ID，默认值为 sleep-parser-server）
     id: ${MQTT_CLIENT_ID:sleep-parser-server}
-  username: ${MQTT_USERNAME:}
-  password: ${MQTT_PASSWORD:}
+  # MQTT 用户名（支持环境变量 MQTT_USERNAME，默认值为 parser-server）
+  username: ${MQTT_USERNAME:parser-server}
+  # MQTT 密码（支持环境变量 MQTT_PASSWORD，默认值为 123456）
+  password: ${MQTT_PASSWORD:123456}
+  # 重连配置
+  reconnect:
+    # 重连延迟时间（毫秒）（支持环境变量 MQTT_RECONNECT_DELAY，默认值为 5000ms）
+    delay: ${MQTT_RECONNECT_DELAY:5000}
+  # 心跳检测配置
+  heartbeat:
+    # 心跳检测间隔（毫秒）（支持环境变量 MQTT_HEARTBEAT_INTERVAL，默认值为 30000ms）
+    interval: ${MQTT_HEARTBEAT_INTERVAL:30000}
